@@ -58,7 +58,7 @@ def Get_Coeff(path): # создаю список из соответствующ
                 list_coeff[int(list[1].replace("x^", ""))] = int(list[0])
     return list_coeff
 
-def Get_Polinomial(list_coeff): # создаю список из коэффициентов для нового многочлена
+def Get_Polinomial(list_coeff): # получаю новый многочлен
     polinomial = []
     for i in list_coeff:
         if list_coeff.index(i) == 0:
@@ -88,7 +88,7 @@ print(Get_Data(path2))
 list_coeff1 = Get_Coeff(path1)
 list_coeff2 = Get_Coeff(path2)
 
-# получаю новый многочлен-сумму и добавляю в новый файл:
+# получаю список коэффициентов для нового многочлена:
 
 while len(list_coeff1) != len(list_coeff2):
     if len(list_coeff1) > len(list_coeff2):
@@ -100,6 +100,8 @@ list_coeff = []
 for i in range(len(list_coeff1)):
     list_coeff.append(list_coeff1[i] + list_coeff2[i])
     
+# добавляю новый многочлен в новый файл:
+
 with open(path3, 'w') as data:
     data.write(Get_Polinomial(list_coeff))
 
