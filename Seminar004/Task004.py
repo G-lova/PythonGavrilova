@@ -7,22 +7,26 @@
 
 # a, b, c, d, e, h - рандом
 
+
+def Get_Polinomial(k, list_coeff):
+    polinomial = ""
+    for i in list_coeff:
+        if i != 0:
+            if k > 1:
+                polinomial += str(i) + "x^" + str(k) + " + "
+                k -= 1
+            elif k == 1:
+                polinomial += str(i) + "x" + " + "
+                k -= 1
+            else:
+                polinomial += str(i)
+        else:
+            k -= 1
+    return polinomial
+
+
 k = int(input("Введите k: "))
 from random import randint
 list_coeff = [randint(0, 100) for i in range(k+1)]
 
-
-equation = ""
-for i in list_coeff:
-    if i != 0:
-        if k > 1:
-            equation += str(i) + "x^" + str(k) + " + "
-            k -= 1
-        elif k == 1:
-            equation += str(i) + "x" + " + "
-            k -= 1
-        else:
-            equation += str(i)
-    else:
-        k -= 1
-print(equation)
+print(Get_Polinomial(k, list_coeff))
