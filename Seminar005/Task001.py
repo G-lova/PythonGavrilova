@@ -8,3 +8,24 @@
 # a) Добавьте игру против бота
 
 # Доп b) Подумайте как наделить бота ""интеллектом"" (Теория игр)
+
+import random
+
+def GameRandom(n):
+    result = "Вы выиграли!"
+    while n > 28:
+        human = int(input("Ваш ход: "))
+        if human > 28:
+            human = int(input("Введите число не больше 28: "))
+        n = n - human
+        print(f"Осталось: {n}")
+        if n < 28:
+            result = "Бот выиграл!"
+        else:
+            bot = random.randint(1, 28)
+            print(f"Бот взял: {bot}")
+        n = n - bot
+        print(f"Осталось: {n}")
+    print(result)
+
+GameRandom(120)
