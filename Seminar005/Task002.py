@@ -20,6 +20,8 @@ def GameXO():
     while step < 9:
         for item in xo:
             player = int(input(f"Ход {item}: "))
+            if player not in table:
+                player = int(input("Такой ход не существует. Попробуйте еще раз: "))
             for i in table:
                 if i == player:
                     table[i-1] = item
